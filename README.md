@@ -4,14 +4,14 @@ A modern, responsive web application built with React and TypeScript for managin
 
 ## Features
 
-- 👥 User Management Dashboard
-- 🔍 Real-time Search Functionality
-- 📱 Responsive Design
-- 🌓 Dark/Light Theme Support
-- ✏️ Edit User Information
-- 🗑️ Delete User Records
-- 📄 Pagination Support
-- 🔐 Authentication System
+- User Management Dashboard
+- Real-time Search Functionality
+- Responsive Design
+- Dark/Light Theme Support
+- Edit User Information
+- Delete User Records
+- Pagination Support
+- Authentication System
 
 ## Tech Stack
 
@@ -22,8 +22,9 @@ A modern, responsive web application built with React and TypeScript for managin
 - Context API for State Management
 - RESTful API Integration (ReqRes)
 
-## Getting Started
+## Prerequisites
 
-1. Clone the repository:
-```bash
-git clone https://github.com/HardikDabral/Employee_wise.git
+Before running the project, ensure you have:
+- Node.js (v16 or higher)
+- npm (v8 or higher)
+- Git
