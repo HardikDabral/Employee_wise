@@ -170,8 +170,8 @@ const UsersPage: React.FC = () => {
         throw new Error('Failed to update user');
       }
 
-      // Update the user in the local state
-      setUsers((prevUsers) =>
+      // Update both users and filteredUsers states
+      const updateUserData = (prevUsers: User[]) =>
         prevUsers.map((user) =>
           user.id === id
             ? {
@@ -181,8 +181,11 @@ const UsersPage: React.FC = () => {
                 email: userData.email || user.email,
               }
             : user
-        )
-      );
+        );
+
+      setUsers(updateUserData);
+      setFilteredUsers(updateUserData);
+      setAllUsers(updateUserData);
     } catch (error) {
       console.error('Error updating user:', error);
       throw error;
@@ -210,15 +213,21 @@ const UsersPage: React.FC = () => {
         throw new Error('Failed to delete user');
       }
 
-      // Remove the user from the local state
-      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== deletingUser.id));
+      // Update both users and filteredUsers states
+      const filterUserData = (prevUsers: User[]) => 
+        prevUsers.filter((user) => user.id !== deletingUser.id);
+
+      setUsers(filterUserData);
+      setFilteredUsers(filterUserData);
+      setAllUsers(filterUserData);
+      setIsDeleteDialogOpen(false);
+      
       toast.success(`${deletingUser.first_name} ${deletingUser.last_name} deleted successfully`);
     } catch (error) {
       console.error('Error deleting user:', error);
       toast.error('Failed to delete user', {
         description: error instanceof Error ? error.message : 'An unknown error occurred'
       });
-      throw error;
     }
   };
 
